@@ -27,7 +27,7 @@ async function fetchImage(imageUrl) {
 }
 
 router.get('/status', async(req, res) => {
-  console.log("API is currently running!")
+  res.send({message: "API is currently running!"});
 })
 
 router.post('/process-mp3', upload.single('file'), async (req, res) => {
