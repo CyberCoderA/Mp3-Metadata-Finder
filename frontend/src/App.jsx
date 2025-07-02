@@ -26,7 +26,7 @@ function App() {
     formData.append('file', selectedFile, selectedFile.name);
 
     try {
-      const res = await fetch('http://localhost:4000/api/process-mp3', {
+      const res = await fetch('https://mp3-metadata-finder-api.vercel.app/api/process-mp3', {
         method: 'POST',
         body: formData,
       });
