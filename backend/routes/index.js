@@ -26,6 +26,10 @@ async function fetchImage(imageUrl) {
   return new Uint8Array(arrayBuffer);
 }
 
+router.get('/status', async(req, res) => {
+  console.log("API is currently running!")
+})
+
 router.post('/process-mp3', upload.single('file'), async (req, res) => {
   try {
     const file = req.file;
