@@ -8,4 +8,8 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  
+  optimizeDeps: {
+    exclude: ['@ffmpeg/ffmpeg', 'worker.js']
+  }
 })
