@@ -52,8 +52,8 @@ function App() {
 
       setProgress(50);
       await ffmpeg.exec([
-        '-i', selectedFile.name, setProgress(53),
-        '-vn', '-ar', '44100', setProgress(55),'-ac', '2', '-b:a', '192k', setProgress(60),
+        '-i', selectedFile.name,
+        '-vn', '-ar', '44100', '-ac', '2', '-b:a', '192k',
         'output.mp3'
       ]);
 
