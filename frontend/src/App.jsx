@@ -16,7 +16,7 @@ function App() {
       if (!selectedFile) return;
 
       try {
-        const res = await axios.post('https://mp3-metadata-finder-api.onrender.comapi/retrieve-mp3-data',{file_name: fileName});
+        const res = await axios.post('https://mp3-metadata-finder-api.onrender.com/api/retrieve-mp3-data',{file_name: fileName});
         setMetadata(res.data)
       } catch (err) {
         console.error('Upload failed:', err);
