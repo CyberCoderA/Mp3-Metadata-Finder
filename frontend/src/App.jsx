@@ -39,10 +39,12 @@ function App() {
     }
   };
 
-  const handleDownloadProcess = async () => {
+  const handleConversionProcess = async () => {
     try {
       setProgress(10);
       const ffmpeg = new FFmpeg();
+
+      setProgress(20);
       await ffmpeg.load();
 
       setProgress(30);
@@ -50,8 +52,8 @@ function App() {
 
       setProgress(50);
       await ffmpeg.exec([
-        '-i', selectedFile.name,
-        '-vn', '-ar', '44100', '-ac', '2', '-b:a', '192k',
+        '-i', selectedFile.name, setProgress(53),
+        '-vn', '-ar', '44100', setProgress(55),'-ac', '2', '-b:a', '192k', setProgress(60),
         'output.mp3'
       ]);
 
@@ -125,7 +127,7 @@ function App() {
           onSubmit={(e) => {
             console.log("File is being downloaded...")
             e.preventDefault(); // prevent page reload
-            handleDownloadProcess();
+            handleConversionProcess();
           }}
           encType="multipart/form-data"
           className='flex gap-5 lg:flex-col items-center'
@@ -148,10 +150,10 @@ function App() {
           {fileSelected && (
             <button
               type="submit"
-              id="downloadBtn"
+              id="convertBtn"
               className='duration-300 ease-in border-blue-600 border-2 rounded-sm text-blue-600 hover:cursor-pointer p-2 lg:py-2 lg:px-8 hover:bg-blue-600 hover:text-white hover:ease-out hover:duration-300'
             >
-              Download
+              Convert
             </button>
           )}
         </form>
